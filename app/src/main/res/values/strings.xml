@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="error_while_fetching_news">Error While fetching news</string>
+</resources>
