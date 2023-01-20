@@ -1,7 +1,5 @@
-package com.neeraj.memesharing
+package com.neeraj.newsapp
 
-import com.neeraj.newsapp.NewsArticles
-import com.neeraj.newsapp.NewsResponseModel
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,7 +13,7 @@ interface ApiInterface {
 
     companion object {
 
-        val BASE_URL = "https://newsapi.org/v2/"
+        private const val BASE_URL = "https://newsapi.org/v2/"
 
         fun create() : ApiInterface {
           val retrofit = Retrofit.Builder()

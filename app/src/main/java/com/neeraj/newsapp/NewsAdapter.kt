@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class NewsAdapter(val newsItemClickedListener : NewsItemClicked) : RecyclerView.Adapter<NewsViewHolder>() {
+class NewsAdapter(private val newsItemClickedListener : NewsItemClicked) : RecyclerView.Adapter<NewsViewHolder>() {
 
     private var mNewsList : ArrayList<NewsArticles>? = null
 
@@ -26,9 +26,9 @@ class NewsAdapter(val newsItemClickedListener : NewsItemClicked) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-        holder.mTxvTitle.text = mNewsList?.get(position)?.title
-        holder.mTxvAuthor.text = mNewsList?.get(position)?.author
-        Glide.with(holder.mTxvTitle.context).load(mNewsList?.get(position)?.urlToImage).into(holder.mImgView)
+        holder.mTxvTitle?.text = mNewsList?.get(position)?.title
+        holder.mTxvAuthor?.text = mNewsList?.get(position)?.author
+        Glide.with(holder.mTxvTitle!!.context).load(mNewsList?.get(position)?.urlToImage).into(holder.mImgView!!)
 
         holder.itemView.setOnClickListener {
             newsItemClickedListener.onItemClicked(mNewsList?.get(position))
@@ -38,10 +38,10 @@ class NewsAdapter(val newsItemClickedListener : NewsItemClicked) : RecyclerView.
     }
 
     override fun getItemCount(): Int {
-        if(null != mNewsList) {
-            return mNewsList!!.size
+        return if(null != mNewsList) {
+            mNewsList!!.size
         } else {
-            return 0
+            0
         }
     }
 
@@ -51,10 +51,9 @@ class NewsAdapter(val newsItemClickedListener : NewsItemClicked) : RecyclerView.
 
 class NewsViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
 
-    val mImgView = itemView.findViewById<ImageView>(R.id.img_adapter_news)
-    val mTxvTitle = itemView.findViewById<TextView>(R.id.txv_adapter_news_title)
-    val mTxvAuthor = itemView.findViewById<TextView>(R.id.txv_adapter_news_author)
-
+    val mImgView : ImageView? = itemView.findViewById(R.id.img_adapter_news)
+    val mTxvTitle : TextView? = itemView.findViewById(R.id.txv_adapter_news_title)
+    val mTxvAuthor : TextView? = itemView.findViewById(R.id.txv_adapter_news_author)
 }
 
 

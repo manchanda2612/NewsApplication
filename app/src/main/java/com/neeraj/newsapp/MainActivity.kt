@@ -7,19 +7,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.neeraj.memesharing.ApiInterface
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import androidx.browser.customtabs.CustomTabColorSchemeParams
-
-import android.graphics.Color
-import androidx.browser.customtabs.CustomTabsClient
-
-import android.content.ComponentName
-
-import androidx.browser.customtabs.CustomTabsServiceConnection
 
 class MainActivity : AppCompatActivity(), NewsItemClicked {
 
